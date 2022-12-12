@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "angular-chat-29b54",
+    "angular-chat": "angular-chat-29b54",
+    "e": "angular-chat-29b54",
+    "g": "angular-chat-29b54"
+  },
+  "targets": {
+    "angular-chat-29b54": {
+      "hosting": {
+        "myapp": [
+          "angular-chat-29b54"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

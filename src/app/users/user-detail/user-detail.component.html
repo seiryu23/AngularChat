@@ -1,0 +1,48 @@
+<section class="container">
+  <form #form="ngForm" (ngSubmit)="updateProfile(form)">
+    <div *ngIf="user$ | async as user">
+      <div *ngIf="currentUser$ | async as currentUser">
+        <div class="image">
+          <img src="//placehold.jp/150x150.png" class="rounded-circle" alt="{{ user.displayName }}">
+        </div>
+        <div class="form-group">
+          <div class="form-title">【名前】</div>
+          <ng-container *ngIf="!user.isEdit">
+            <p>{{ user.displayName }}</p>
+          </ng-container>
+          <ng-container *ngIf="user.uid === currentUser.uid && !user.isEdit">
+            <button class="edit-btn" title="編集" (click)="user.isEdit = !user.isEdit">Edit</button>
+          </ng-container>
+          <ng-container *ngIf="user.isEdit">
+            <div class="input-group">
+              <textarea [(ngModel)]="user.displayName" name="displayName" class="form-control">
+              </textarea>
+            </div>
+          </ng-container>
+        </div>
+        <div class="form-group">
+          <div class="form-title">【ID】</div>
+          <p>{{ user.uid }}</p>
+        </div>
+        <div class="form-group">
+          <div class="form-title">【メールアドレス】</div>
+          <ng-container *ngIf="!user.isEdit">
+            <p>{{ user.email }}</p>
+          </ng-container>
+          <ng-container *ngIf="user.uid === currentUser.uid && !user.isEdit">
+            <button class="edit-btn" title="編集" (click)="user.isEdit = !user.isEdit">Edit</button>
+          </ng-container>
+          <ng-container *ngIf="user.isEdit">
+            <div class="input-group">
+              <textarea [(ngModel)]="user.email" name="email" class="form-control">
+              </textarea>
+            </div>
+            <button class="btn btn-success btn-sm" type="submit">保存</button>
+            <button class="btn btn-warning btn-sm" (click)="user.isEdit = false">キャンセル</button>
+          </ng-container>
+        </div>
+        <a href="#" class="btn btn-primary btn-lg" (click)="goBack($event)">戻る</a>
+      </div>
+    </div>
+  </form>
+</section>

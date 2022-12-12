@@ -1,0 +1,11 @@
+nav {
+  position: sticky;
+}
+
+.navbar {
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand, .navbar-text {
+  margin: 0 20px;
+}
